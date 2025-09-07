@@ -15,9 +15,10 @@ app.use(express.json());
 
 
 // MongoDB Verbindung
-mongoose.connect("mongodb+srv://Beneschmid:Metallica1981!@musicapp.glgtqic.mongodb.net/MusicApp")
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log("✅ MongoDB verbunden"))
   .catch(err => console.error("❌ Fehler bei MongoDB Verbindung:", err));
+
 
 // Song Schema & Model
 const songSchema = new mongoose.Schema({
